@@ -1,0 +1,55 @@
+.cubemap {
+  container-type: size;
+}
+
+.cubemap>* {
+  width: 100cqw;
+  height: 100cqh;
+  perspective: 100cqmax;
+  overflow: hidden;
+}
+
+.cubemap-camera {
+  transform-style: preserve-3d;
+  translate: calc(50cqw - 50cqmax) calc(50cqh - 50cqmax) 100cqmax;
+  transform-origin: 50cqmax 50cqmax;
+}
+
+.cubemap-camera * {
+  position: absolute;
+  width: 100cqmax;
+  height: 100cqmax;
+  border-image-slice: 1 fill;
+  border-image-width: 1cqmax;
+  border-image-outset: 1cqmax;
+}
+
+.cubemap-camera :nth-child(1) {
+  border-image-source: var(--front);
+  transform: translateZ(-50cqmax);
+}
+
+.cubemap-camera :nth-child(2) {
+  border-image-source: var(--right);
+  transform: rotateY(-90deg) translateZ(-50cqmax);
+}
+
+.cubemap-camera :nth-child(3) {
+  border-image-source: var(--back);
+  transform: rotateY(180deg) translateZ(-50cqmax);
+}
+
+.cubemap-camera :nth-child(4) {
+  border-image-source: var(--left);
+  transform: rotateY(90deg) translateZ(-50cqmax);
+}
+
+.cubemap-camera :nth-child(5) {
+  border-image-source: var(--up);
+  transform: rotateX(-90deg) translateZ(-50cqmax);
+}
+
+.cubemap-camera :nth-child(6) {
+  border-image-source: var(--down);
+  transform: rotateX(90deg) translateZ(-50cqmax);
+}

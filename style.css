@@ -1,0 +1,33 @@
+@import "cubemap.css";
+
+.background {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.minecraft-panorama {
+  --front: url("minecraft-panorama/0.png");
+  --right: url("minecraft-panorama/1.png");
+  --back: url("minecraft-panorama/2.png");
+  --left: url("minecraft-panorama/3.png");
+  --up: url("minecraft-panorama/4.png");
+  --down: url("minecraft-panorama/5.png");
+}
+
+.minecraft-panorama .cubemap-camera {
+  animation: minecraft-panorama 120s linear infinite;
+}
+
+@keyframes minecraft-panorama {
+  from {
+    transform: scale(.25);
+  }
+
+  to {
+    transform: scale(.25) rotateX(1turn) rotateY(1turn) rotateZ(1turn);
+  }
+}
